@@ -8,7 +8,8 @@ Issuer API integration
 	Create a file (e.g., .env.php) in your website root directory. This file will store API credentials, URLs, and other sensitive information. Place this file outside the public directory to prevent direct access. Copy the below content in the file and save it.
 	If a similar file already exists, add these values to that file and save.
 
-	<?php
+```
+    <?php
 	// .env.php
 
 	// API URLs
@@ -23,7 +24,8 @@ Issuer API integration
 	define('schema_version', '<Schema_version>');
 	define('template_id', '<Certificate_template_id>');
 	?>
-
+```
+	
 2)	Include the above environment file in your WordPress theme or plugin: 
 	In your WordPress theme's functions.php file or in your custom plugin, include the .env.php file with full path:
 
@@ -33,6 +35,7 @@ Issuer API integration
 3)  Create a function to process the GET and POST API response
 	Add the below function in your functions.php file to execute the GET and POST API functions.
 
+```
 	// functions.php or your custom plugin file	
 
 	function process_api_response() {	
@@ -81,9 +84,11 @@ Issuer API integration
 		}	
 	}
 
+```
 4)	Create a function to make GET API calls. 
 	Add the below function in your functions.php file to get Bearer Token.
 
+```
 	function make_get_api_call() {
 		// Build GET request headers
 		$headers = array(
@@ -119,11 +124,12 @@ Issuer API integration
 			}
 		}
 	}
-	
+```
 	
 5)	Create a function to make POST API calls . 
 	Add the below function in your functions.php file to invoke the Credential Issuance API.	
 
+```
 	function make_post_api_call(token) {
 		// Build POST request headers
 		$headers = array(
@@ -187,6 +193,7 @@ Issuer API integration
 		}
 	}
 
+```
 6)	Call the API functions when needed: 
 	Now, you can call the make_get_api_call() and make_post_api_call() functions from anywhere within your theme files or custom plugins.
 	An exapmle is shown by calling from function process_api_response().
